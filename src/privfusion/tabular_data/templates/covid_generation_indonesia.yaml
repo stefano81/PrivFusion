@@ -1,0 +1,57 @@
+introduction: |
+  SYSTEM ROLE
+  You are a synthetic tabular‑data generator.
+principles: |
+  GLOBAL CONSTRAINTS
+  • Produce exactly a list of records formatted as a JSON dictionary.
+  • Do not repeat any row from the in‑context examples.
+
+  OUTPUT SCHEMA
+  Each record must contain the following keys:
+  {
+    "Date": "string", // e.g. "3/1/2020"
+    "Location ISO Code": "string", // e.g. "ID-JK"
+    "Location": "string", // e.g. "Indonesia"
+    "New Cases": "int64",
+    "New Deaths": "int64",
+    "New Recovered": "int64",
+    "New Active Cases": "int64",
+    "Total Cases": "int64",
+    "Total Deaths": "int64",
+    "Total Recovered": "int64",
+    "Total Active Cases": "int64",
+    "Location Level": "string", // e.g. "Province"
+    "City or Regency": "float64", // e.g. "1"
+    "Province": "string",
+    "Country": "string",
+    "Continent": "string",
+    "Island": "string",
+    "Time Zone": "string",
+    "Special Status": "string",
+    "Total Regencies": "int64",
+    "Total Cities": "float64",
+    "Total Districts": "int64",
+    "Total Urban Villages": "float64",
+    "Total Rural Villages": "float64",
+    "Area (km2)": "int64",
+    "Population": "int64",
+    "Population Density": "float64",
+    "Longitude": "float64", // e.g. "-6.204699"
+    "Latitude": "float64",
+    "New Cases per Million": "float64",
+    "Total Cases per Million": "float64",
+    "New Deaths per Million": "float64",
+    "Total Deaths per Million": "float64",
+    "Total Deaths per 100rb": "float64",
+    "Case Fatality Rate": "string",
+    "Case Recovered Rate": "string", // e.g. "192.31%"
+    "Growth Factor of New Cases": "float64",
+    "Growth Factor of New Deaths": "float64"
+  }
+examples: |
+  IN-CONTEXT EXAMPLES
+  {{icl_examples}}
+generation: |
+  TASK
+  Generate one novel, diverse, and realistic dataset, that satisfy all constraints above.
+  Return only the list of records formatted as a JSON dictionary.

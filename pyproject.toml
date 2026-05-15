@@ -1,0 +1,124 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "privfusion"
+version = "0.0.1"
+description = "LLM-powered framework for aligning and consolidating heterogeneous tabular datasets"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "Apache-2.0"
+authors = [
+    {name="Stefano Braghin", email="stefanob@ie.ibm.com"},
+    {name="Liubov Nedoshivina", email="liubov.nedoshivina@ibm.com"},
+    {name="Anisa Halimi", email="anisa.halimi@ibm.com"},
+    {name="Kieran Fraser", email="kieran.fraser@ibm.com"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "langchain_ollama==0.3.7",
+    "langchain-core==0.3.74",
+    "langchain-ibm==0.3.15",
+    "litellm==1.75.5.post1",
+    "pandas>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "readi-privacy==0.1.4",
+    "sdmetrics==0.28.0",
+    "SPARQLWrapper==2.0.0",
+    "tenacity==9.1.2",
+    "termcolor==3.3.0",
+    "ucimlrepo==0.0.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "faker",
+    "ruff",
+    "ty",
+    "prek",
+]
+
+[project.urls]
+Homepage = "https://github.com/IBM/privfusion"
+Documentation = "https://github.com/IBM/privfusion#readme"
+"Bug Tracker" = "https://github.com/IBM/privfusion/issues"
+"Source Code" = "https://github.com/IBM/privfusion"
+
+[tool.hatch.version]
+path = "src/privfusion/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/privfusion"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/README.md",
+    "/LICENSE",
+]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+]
+
+[tool.ty.environment]
+python-version = "3.11"
+root = ["./src"]
+
+[tool.ty.src]
+exclude = ["**/__pycache__", "**/.pytest_cache"]
+
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",]
+ignore = ["E501", "E402", "E701", "F821", "SIM108", "W293"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/**.py" = ["T201", "B011"]
+"notebooks/**.ipynb" = ["B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
