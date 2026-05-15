@@ -349,10 +349,11 @@ pytest tests/test_mapping.py -v
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 🙏 Acknowledgment
 
+- This project is partly supported by the Innovative Health Initiative Joint Undertaking (IHI JU) under grant agreement No. 101172997 – SEARCH.
 - Built with [LangChain](https://github.com/langchain-ai/langchain) for LLM orchestration
-- Uses [READI](https://github.com/IBM/READI) for semantic type detection (to be released)
+- Uses [READI](https://github.com/IBM/READI) for semantic type detection
 - Powered by IBM WatsonX, Ollama, and other LLM providers
 - COVID-19 datasets from [Our World in Data](https://ourworldindata.org/coronavirus)
 - Adult dataset from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/adult)
@@ -363,10 +364,17 @@ For questions about the paper or code:
 
 - **Issues**: [GitHub Issues](https://github.com/IBM/privfusion/issues)
 
-## Version History
-
-See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
 ---
 
 **Note**: This is research code. For production use, additional testing and optimization may be required.
+
+--
+
+<div align="center">
+
+**Built with ❤️ by IBM Research**
+
+[Documentation](https://github.com/IBM/READI) • [Examples](./notebooks) • [Contributing](CONTRIBUTING.md) • [License](LICENSE)
+
+</div>
