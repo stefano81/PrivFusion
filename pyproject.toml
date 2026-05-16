@@ -36,7 +36,7 @@ dependencies = [
     "pandas>=2.0.0",
     "pydantic>=2.0.0",
     "python-dotenv>=1.0.0",
-    "readi-privacy==0.1.4",
+    "readi-privacy>=0.1.4",
     "sdmetrics==0.28.0",
     "SPARQLWrapper==2.0.0",
     "tenacity==9.1.2",
@@ -46,12 +46,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "pytest-cov",
     "faker",
+    "prek",
+    "pytest-cov",
+    "pytest",
     "ruff",
     "ty",
-    "prek",
 ]
 
 [project.urls]
