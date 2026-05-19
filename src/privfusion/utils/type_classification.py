@@ -1,4 +1,5 @@
 import logging
+from contextlib import suppress
 from typing import Any, cast
 
 import pandas as pd
@@ -332,12 +333,10 @@ class ISOMixed(DictionaryIdentifier):
 
 class Numeric(Identifier):
     def is_of_this_type(self, text: str) -> bool:
-        try:
+        with suppress(Exception):
             v = float(text)
             if v is not None:
                 return True
-        except Exception:
-            pass
         return False
 
 

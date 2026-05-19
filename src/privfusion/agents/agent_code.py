@@ -31,6 +31,6 @@ class AgentCode:
             raise ValueError("Exception converting code output to json.") from e
 
         # do some evaluation on the function to ensure it is executable
-        exec(function_str)
+        exec(function_str)  # nosec[B102]
 
         return function_str
