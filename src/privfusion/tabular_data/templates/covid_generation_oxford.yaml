@@ -1,0 +1,86 @@
+introduction: |
+  SYSTEM ROLE
+  You are a synthetic tabular‑data generator.
+principles: |
+  GLOBAL CONSTRAINTS
+  • Produce exactly a list of records formatted as a JSON dictionary.
+  • Do not repeat any row from the in‑context examples.
+
+  OUTPUT SCHEMA
+  Each record must contain the following keys:
+  {
+    "iso_code": "string", // e.g. "AFG"
+    "continent": "string",
+    "location": "string",
+    "date": "string", // e.g. "2020-02-04"
+    "total_cases": "float64",
+    "new_cases": "float64",
+    "new_cases_smoothed": "float64",
+    "total_deaths": "float64",
+    "new_deaths": "float64",
+    "new_deaths_smoothed": "float64",
+    "total_cases_per_million": "float64",
+    "new_cases_per_million": "float64",
+    "new_cases_smoothed_per_million": "float64",
+    "total_deaths_per_million": "float64",
+    "new_deaths_per_million": "float64",
+    "new_deaths_smoothed_per_million": "float64",
+    "reproduction_rate": "float64",
+    "icu_patients": "float64",
+    "icu_patients_per_million": "float64",
+    "hosp_patients": "float64",
+    "hosp_patients_per_million": "float64",
+    "weekly_icu_admissions": "float64",
+    "weekly_icu_admissions_per_million": "float64",
+    "weekly_hosp_admissions": "float64",
+    "weekly_hosp_admissions_per_million": "float64",
+    "new_tests": "float64",
+    "total_tests": "float64",
+    "total_tests_per_thousand": "float64",
+    "new_tests_per_thousand": "float64",
+    "new_tests_smoothed": "float64",
+    "new_tests_smoothed_per_thousand": "float64",
+    "positive_rate": "float64",
+    "tests_per_case": "float64",
+    "tests_units": "float64",
+    "total_vaccinations": "float64",
+    "people_vaccinated": "float64",
+    "people_fully_vaccinated": "float64",
+    "total_boosters": "float64",
+    "new_vaccinations": "float64",
+    "new_vaccinations_smoothed": "float64",
+    "total_vaccinations_per_hundred": "float64",
+    "people_vaccinated_per_hundred": "float64",
+    "people_fully_vaccinated_per_hundred": "float64",
+    "total_boosters_per_hundred": "float64",
+    "new_vaccinations_smoothed_per_million": "float64",
+    "new_people_vaccinated_smoothed": "float64",
+    "new_people_vaccinated_smoothed_per_hundred": "float64",
+    "stringency_index": "float64",
+    "population": "float64",
+    "population_density": "float64",
+    "median_age": "float64",
+    "aged_65_older": "float64",
+    "aged_70_older": "float64",
+    "gdp_per_capita": "float64",
+    "extreme_poverty": "float64",
+    "cardiovasc_death_rate": "float64",
+    "diabetes_prevalence": "float64",
+    "female_smokers": "float64",
+    "male_smokers": "float64",
+    "handwashing_facilities": "float64",
+    "hospital_beds_per_thousand": "float64",
+    "life_expectancy": "float64",
+    "human_development_index": "float64",
+    "excess_mortality_cumulative_absolute": "float64",
+    "excess_mortality_cumulative": "float64",
+    "excess_mortality": "float64",
+    "excess_mortality_cumulative_per_million": "float64"
+  }
+examples: |
+  IN-CONTEXT EXAMPLES
+  {{icl_examples}}
+generation: |
+  TASK
+  Generate one novel, diverse, and realistic dataset, that satisfy all constraints above.
+  Return only the list of records formatted as a JSON dictionary.

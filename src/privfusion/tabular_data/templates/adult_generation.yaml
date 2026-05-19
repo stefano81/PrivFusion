@@ -1,0 +1,36 @@
+introduction: |
+  SYSTEM ROLE
+  You are a synthetic tabular‑data generator.
+principles: |
+  GLOBAL CONSTRAINTS
+  • Produce exactly a list of two JSON dictionaries.
+  • Generate one record with "gender": "Male" and one with "gender": "Female".
+  • Ensure the binary label "y" is logically consistent with the feature values.
+  • Do not repeat any row from the in‑context examples.
+
+  OUTPUT SCHEMA
+  Each record must contain the following keys:
+  {
+    "age": "int",  // e.g. "34"
+    "workclass": "string", // e.g. "1"
+    "fnlwgt": "int",
+    "education": "string",
+    "educational-num": "int",
+    "marital-status": "string",
+    "occupation": "string",  // "Prof-specialty" or "Craft-repair" or other
+    "relationship": "string",
+    "race": "string", // "White" or "Black"
+    "gender": "string", // Male or Female
+    "capital-gain": "int",
+    "capital-loss": "int",
+    "hours-per-week": "int",
+    "native-country": "string",
+    "income": "string", // "<=50K", ">50K"
+  }
+examples: |
+  IN-CONTEXT EXAMPLES
+  {{icl_examples}}
+generation: |
+  TASK
+  Generate two novel, diverse, and realistic samples, one male and one female, that satisfy all constraints above.
+  Return only the list with the two JSON dictionaries.
