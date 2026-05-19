@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Any
 
-import pandas as pd
-from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
-from tenacity import retry, stop_after_attempt, wait_fixed
+import pandas as pd  # type: ignore
+from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage  # type: ignore
+from tenacity import retry, stop_after_attempt, wait_fixed  # type: ignore
 
 from privfusion.agents.llms import LLM
 from privfusion.data_models import DatasetInformation, SemanticInformation, SemanticRelationship, StructuralInformation
@@ -19,7 +19,9 @@ class DatasetAnalyzer:
     RELATIONSHIPS_SYSTEM_PROMPT = """Given the dataset in (SAMPLE) highlight relationships between columns in the following format: {column_name} -> {column_name} := {explanation}. Do not provide any comment."""
     STRUCTURE_DESCRIPTION_SYSTEM_PROMPT = """Given a tabular datasets consisting of columns (COLUMN_NAMES) and some examples as per (SAMPLE), please describe the structure of the dataset to the best of your understanding. Only return the discorsive description."""
 
-    def __init__(self, llm_reference: LLM, config: dict[str, Any]) -> None:
+    def __init__(self, llm_reference: LLM, config: dict[str, Any] | None = None) -> None:
+        if config is None:
+            config = dict()
         self._llm = llm_reference
         self._description_system_prompt = config.get(
             "description_system_prompt",
