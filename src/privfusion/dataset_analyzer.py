@@ -9,7 +9,6 @@ from tenacity import retry, stop_after_attempt, wait_fixed  # type: ignore
 from privfusion.agents.llms import LLM
 from privfusion.data_models import DatasetInformation, SemanticInformation, SemanticRelationship, StructuralInformation
 from privfusion.utils import get_type_mapping
-from privfusion.utils.utils import print_colored_dict
 
 
 class DatasetAnalyzer:
@@ -90,7 +89,6 @@ class DatasetAnalyzer:
                 ),
             ],
         )
-        print_colored_dict(response)
         return response["response"]
 
     def _generate_column_semantic(
